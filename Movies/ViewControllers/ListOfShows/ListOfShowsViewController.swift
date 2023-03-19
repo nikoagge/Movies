@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class ListOfShowsViewController: UIViewController {
+final class ListOfShowsViewController:
+    UIViewController,
+    NavigableViewController {
     let listOfShowsTableView = UITableView.newAutoLayout()
     
     private var networkManager:NetworkManagerType = NetworkManager()

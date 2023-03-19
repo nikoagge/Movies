@@ -34,6 +34,23 @@ extension ListOfShowsViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let showImageURLString = listOfRealmShows == nil ? listOfServiceShows[indexPath.row].image?.medium : listOfRealmShows[indexPath.row].imageMedium
+        let showName = listOfRealmShows == nil ? listOfServiceShows[indexPath.row].name : listOfRealmShows[indexPath.row].name
+        let showLanguage = listOfRealmShows == nil ? listOfServiceShows[indexPath.row].language : listOfRealmShows[indexPath.row].language
+        let showType = listOfRealmShows == nil ? listOfServiceShows[indexPath.row].type : listOfRealmShows[indexPath.row].type
+        let showRating = listOfRealmShows == nil ? "\(listOfServiceShows[indexPath.row].rating?.average ?? 0)" : "\(listOfRealmShows[indexPath.row].rating)"
         
+        navigate(
+            .init(
+                pageType: .showDetailViewController(
+                    showImageURLString: showImageURLString,
+                    showName: showName,
+                    showLanguage: showLanguage,
+                    showType: showType,
+                    showRating: showRating
+                ),
+                navigationStyle: .push(animated: true)
+            )
+        )
     }
 }
