@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 protocol NetworkManagerType {
-    func getShows(onCompletion: @escaping (Result<[Show], Error>) -> Void)
+    func getServiceShows(onCompletion: @escaping (Result<[ServiceShow], Error>) -> Void)
 }
 
 final class NetworkManager: NetworkManagerType {
@@ -21,13 +21,13 @@ final class NetworkManager: NetworkManagerType {
         })
     }
     
-    func getShows(onCompletion: @escaping (Result<[Show], Error>) -> Void) {
+    func getServiceShows(onCompletion: @escaping (Result<[ServiceShow], Error>) -> Void) {
         moviesProvider.request(.getShows) { result in
             switch result {
             case .success(let response):
                 do {
-                    let shows = try JSONDecoder().decode([Show].self, from: response.data)
-                    onCompletion(.success(shows))
+                    let serviceShows = try JSONDecoder().decode([ServiceShow].self, from: response.data)
+                    onCompletion(.success(serviceShows))
                     
                     return
                 } catch (let error) {

@@ -6,20 +6,9 @@
 //
 
 import Foundation
-import RealmSwift
 
-@objc final class Externals: NSObject, Codable {
-    @objc dynamic var tvrage: Int = 0
+struct Externals: Codable {
+    let tvrage: Int?
     let thetvdb: Int?
     let imdb: String?
-    
-    init(
-        tvrage: Int,
-        thetvdb: Int?,
-        imdb: String?
-    ) {
-        self.tvrage = tvrage
-        self.thetvdb = thetvdb
-        self.imdb = imdb
-    }
 }

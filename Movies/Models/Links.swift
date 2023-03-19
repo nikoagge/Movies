@@ -6,23 +6,10 @@
 //
 
 import Foundation
-import RealmSwift
 
-@objc final class Links: NSObject, Codable {
-    @objc dynamic var linksSelf: Reference = Reference(
-        href: ""
-    )
-    @objc dynamic var previousEpisode: Reference = Reference(
-        href: ""
-    )
-    
-    init(
-        linksSelf: Reference,
-        previousEpisode: Reference
-    ) {
-        self.linksSelf = linksSelf
-        self.previousEpisode = previousEpisode
-    }
+struct Links: Codable {
+    let linksSelf: Reference?
+    let previousEpisode: Reference?
     
     enum CodingKeys: String, CodingKey {
         case linksSelf = "self"

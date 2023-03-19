@@ -6,17 +6,8 @@
 //
 
 import Foundation
-import RealmSwift
 
-@objc final class Image: NSObject, Codable {
-    @objc dynamic var medium: String = ""
-    @objc dynamic var original: String = ""
-    
-    init(
-        medium: String,
-        original: String
-    ) {
-        self.medium = medium
-        self.original = original
-    }
+struct Image: Codable {
+    let medium: String?
+    let original: String?
 }
