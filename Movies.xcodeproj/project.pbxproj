@@ -26,6 +26,8 @@
 		17F1983529C4AE6C00F15D72 /* MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1983429C4AE6C00F15D72 /* MoviesTests.swift */; };
 		17F1983F29C4AE6C00F15D72 /* MoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1983E29C4AE6C00F15D72 /* MoviesUITests.swift */; };
 		17F1984129C4AE6C00F15D72 /* MoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1984029C4AE6C00F15D72 /* MoviesUITestsLaunchTests.swift */; };
+		17F8D73C29C710F10063B9F9 /* WebChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8D73B29C710F10063B9F9 /* WebChannel.swift */; };
+		17F8D73E29C7128E0063B9F9 /* DVDCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8D73D29C7128E0063B9F9 /* DVDCountry.swift */; };
 		27D525794115D41E7EB52D0F /* Pods_Movies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B704F4F25E1215F83E1D90 /* Pods_Movies.framework */; };
 		AF9EC2FC134992D24A0B2896 /* Pods_MoviesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6209FDF7BCFC9E7C39F8394F /* Pods_MoviesTests.framework */; };
 		E20B3D1AB6B10E57F0234EC0 /* Pods_Movies_MoviesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7100EB937CA6A435DC7B52CB /* Pods_Movies_MoviesUITests.framework */; };
@@ -72,6 +74,8 @@
 		17F1983A29C4AE6C00F15D72 /* MoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F1983E29C4AE6C00F15D72 /* MoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesUITests.swift; sourceTree = "<group>"; };
 		17F1984029C4AE6C00F15D72 /* MoviesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		17F8D73B29C710F10063B9F9 /* WebChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebChannel.swift; sourceTree = "<group>"; };
+		17F8D73D29C7128E0063B9F9 /* DVDCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVDCountry.swift; sourceTree = "<group>"; };
 		421EB2F93EFD36F89427FEBC /* Pods-Movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.debug.xcconfig"; path = "Target Support Files/Pods-Movies/Pods-Movies.debug.xcconfig"; sourceTree = "<group>"; };
 		44B704F4F25E1215F83E1D90 /* Pods_Movies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEA464A9FF010C6499F33ED /* Pods-Movies-MoviesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies-MoviesUITests.release.xcconfig"; path = "Target Support Files/Pods-Movies-MoviesUITests/Pods-Movies-MoviesUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 				17CBF57E29C5C63C00680D96 /* Image.swift */,
 				17CBF58029C5C68300680D96 /* Links.swift */,
 				17CBF58229C5C76700680D96 /* Reference.swift */,
+				17F8D73B29C710F10063B9F9 /* WebChannel.swift */,
+				17F8D73D29C7128E0063B9F9 /* DVDCountry.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -477,6 +483,7 @@
 			files = (
 				17CBF57329C5C04900680D96 /* Show.swift in Sources */,
 				17CBF57F29C5C63C00680D96 /* Image.swift in Sources */,
+				17F8D73C29C710F10063B9F9 /* WebChannel.swift in Sources */,
 				17F1982229C4AE6900F15D72 /* ViewController.swift in Sources */,
 				17F1981E29C4AE6900F15D72 /* AppDelegate.swift in Sources */,
 				17CBF57D29C5C5F100680D96 /* Externals.swift in Sources */,
@@ -484,6 +491,7 @@
 				17CBF57029C5BCBD00680D96 /* NetworkManager.swift in Sources */,
 				17CBF57729C5C4E600680D96 /* Rating.swift in Sources */,
 				17CBF57929C5C54100680D96 /* Network.swift in Sources */,
+				17F8D73E29C7128E0063B9F9 /* DVDCountry.swift in Sources */,
 				17CBF58329C5C76700680D96 /* Reference.swift in Sources */,
 				17F1982029C4AE6900F15D72 /* SceneDelegate.swift in Sources */,
 				17CBF57529C5C49900680D96 /* Schedule.swift in Sources */,

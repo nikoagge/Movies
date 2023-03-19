@@ -6,7 +6,14 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Rating: Codable {
+@objc final class Rating: NSObject, Codable {
     let average: Double?
+    
+    init(
+        average: Double?
+    ) {
+        self.average = average
+    }
 }

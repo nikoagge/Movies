@@ -6,7 +6,14 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Reference: Codable {
-    let href: String?
+@objc final class Reference: NSObject, Codable {
+    @objc dynamic var href: String = ""
+    
+    init(
+        href: String
+    ) {
+        self.href = href
+    }
 }

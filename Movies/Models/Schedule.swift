@@ -6,8 +6,17 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Schedule: Codable {
-    let time: String?
-    let days: [String]?
+@objc final class Schedule: NSObject, Codable {
+    @objc dynamic var time: String = ""
+    @objc dynamic var days: [String] = []
+    
+    init(
+        time: String,
+        days: [String]
+    ) {
+        self.time = time
+        self.days = days
+    }
 }
