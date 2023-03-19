@@ -9,4 +9,4 @@ import Foundation
 import RealmSwift
 
 //TODO: Find better solution than force unwrapping
-var realmShows: Results<RealmShow>!
+var listOfRealmShows: Results<RealmShow>!

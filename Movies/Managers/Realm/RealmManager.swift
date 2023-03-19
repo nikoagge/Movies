@@ -42,6 +42,6 @@ final class RealmManager: RealmManagerType {
     }
     
     func loadRealmShows() {
-        realmShows = realm?.objects(RealmShow.self)
+        listOfRealmShows = realm?.objects(RealmShow.self)
     }
 }
