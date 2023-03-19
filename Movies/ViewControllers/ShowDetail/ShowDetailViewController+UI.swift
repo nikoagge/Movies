@@ -14,7 +14,7 @@ extension ShowDetailViewController {
     }
     
     private func setupShowImageImageView() {
-        showImageImageView.image = showImage
+//        showImageImageView.image = showImage
         view.addSubview(showImageImageView)
         NSLayoutConstraint.activate([
             showImageImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),

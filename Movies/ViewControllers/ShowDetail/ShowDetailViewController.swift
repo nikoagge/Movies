@@ -11,20 +11,20 @@ final class ShowDetailViewController: UIViewController {
     let showImageImageView = UIImageView.newAutoLayout()
     let showDescriptionLabel = UILabel.newAutoLayout()
     
-    var showImage: UIImage?
+    var showImageURLString: String?
     var showName: String?
     var showLanguage: String?
     var showType: String?
     var showRating: String?
     
     init(
-        showImage: UIImage?,
+        showImageURLString: String?,
         showName: String?,
         showLanguage: String?,
         showType: String?,
         showRating: String?
     ) {
-        self.showImage = showImage
+        self.showImageURLString = showImageURLString
         self.showName = showName
         self.showLanguage = showLanguage
         self.showType = showType
