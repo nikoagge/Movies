@@ -25,22 +25,27 @@ final class ListOfShowsViewController: UIViewController {
     private func loadData() {
         self.realmManager.loadRealmShows()
         if listOfRealmShows == nil || listOfRealmShows.count == 0 {
-            networkManager.getServiceShows { [weak self] result in
-                switch result {
-                case .success(let serviceShows):
-                    self?.listOfServiceShows = serviceShows
-                    _ = serviceShows.map { self?.realmManager.addRealmShow($0) }
-
-                    DispatchQueue.main.async {
-                        self?.listOfShowsTableView.reloadData()
-                    }
-                case .failure(let failure):
-                    debugPrint(failure)
-                }
-            }
+            refreshDataFromService()
         } else {
             DispatchQueue.main.async {
                 self.listOfShowsTableView.reloadData()
+            }
+        }
+    }
+    
+    @objc func refreshDataFromService() {
+        self.listOfServiceShows.removeAll()
+        networkManager.getServiceShows { [weak self] result in
+            switch result {
+            case .success(let serviceShows):
+                self?.listOfServiceShows = serviceShows
+                _ = serviceShows.map { self?.realmManager.addRealmShow($0) }
+                
+                DispatchQueue.main.async {
+                    self?.listOfShowsTableView.reloadData()
+                }
+            case .failure(let failure):
+                debugPrint(failure)
             }
         }
     }
