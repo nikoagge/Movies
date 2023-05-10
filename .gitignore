@@ -71,4 +71,7 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+# Cocoapods
+Pods/
+
 # End of https://www.toptal.com/developers/gitignore/api/swift
