@@ -5,9 +5,20 @@ target 'Movies' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Movies
-  pod 'Moya', '~> 14.0'
-  pod 'RealmSwift', '~> 5.3.5'
+  # Alamofire 
+  pod 'Alamofire', '~> 5.4'
+  pod 'AlamofireImage', '~> 4.1'
+  pod 'AlamofireNetworkActivityLogger', '~> 3.4'
+
+  # Rx pods
+  pod 'RxSwift', '6.5.0'
+  pod 'RxCocoa', '6.5.0'
+  pod 'RxDataSources', '~> 5.0'
+  pod 'KeychainAccess', '4.2.1'
+
+  # Realm Swift 
+  pod 'RealmSwift', '10.24.1'
+  
 
   target 'MoviesTests' do
     inherit! :search_paths
