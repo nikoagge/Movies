@@ -40,6 +40,8 @@
 		17F8D75329C754360063B9F9 /* ShowTableViewCell+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8D75229C754360063B9F9 /* ShowTableViewCell+UI.swift */; };
 		17F8D75529C757C50063B9F9 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8D75429C757C50063B9F9 /* ImageLoader.swift */; };
 		17F8D75829C75BF20063B9F9 /* ListOfShowsViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8D75729C75BF20063B9F9 /* ListOfShowsViewController+TableView.swift */; };
+		3CBBAA9C2A0D0BB700266246 /* BaseNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBBAA9B2A0D0BB700266246 /* BaseNetworkManager.swift */; };
+		3CBBAA9E2A0D163400266246 /* ShowsAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBBAA9D2A0D163400266246 /* ShowsAPIManager.swift */; };
 		45EC55004C5C1FA47B2C4EE4 /* Pods_Movies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532602AE684ABD04C31637A5 /* Pods_Movies.framework */; };
 		7CA03D7D5334410A1EC54754 /* Pods_Movies_MoviesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A53447C3483FF766261247 /* Pods_Movies_MoviesUITests.framework */; };
 		9C3555F7F61DF87A3AFC3174 /* Pods_MoviesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4703CA4EC5C8044CD1B9A754 /* Pods_MoviesTests.framework */; };
@@ -100,6 +102,8 @@
 		17F8D75429C757C50063B9F9 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		17F8D75729C75BF20063B9F9 /* ListOfShowsViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListOfShowsViewController+TableView.swift"; sourceTree = "<group>"; };
 		1F161A0E434E45C47DE20D1C /* Pods-Movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.debug.xcconfig"; path = "Target Support Files/Pods-Movies/Pods-Movies.debug.xcconfig"; sourceTree = "<group>"; };
+		3CBBAA9B2A0D0BB700266246 /* BaseNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkManager.swift; sourceTree = "<group>"; };
+		3CBBAA9D2A0D163400266246 /* ShowsAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsAPIManager.swift; sourceTree = "<group>"; };
 		4136F566E474B44D5EC644B0 /* Pods-MoviesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesTests.release.xcconfig"; path = "Target Support Files/Pods-MoviesTests/Pods-MoviesTests.release.xcconfig"; sourceTree = "<group>"; };
 		4703CA4EC5C8044CD1B9A754 /* Pods_MoviesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6EF9479908C2A212852A0B /* Pods-Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.release.xcconfig"; path = "Target Support Files/Pods-Movies/Pods-Movies.release.xcconfig"; sourceTree = "<group>"; };
@@ -196,7 +200,7 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		17CBF57129C5C02F00680D96 /* Entities */ = {
+		17CBF57129C5C02F00680D96 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				17CBF57229C5C04900680D96 /* ServiceShow.swift */,
@@ -212,7 +216,7 @@
 				17F8D73D29C7128E0063B9F9 /* DVDCountry.swift */,
 				17F8D74429C737D50063B9F9 /* RealmShow.swift */,
 			);
-			path = Entities;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		17F1981129C4AE6900F15D72 = {
@@ -240,7 +244,7 @@
 		17F1981C29C4AE6900F15D72 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				3C2BE6FE2A0BD46A00DF01CD /* Domain */,
+				3CBBAA9A2A0D06E300266246 /* Networking */,
 				17F8D74629C73F1F0063B9F9 /* Extensions */,
 				1757848529C5594E0098F3F8 /* Managers */,
 				1757848229C54C3B0098F3F8 /* ViewControllers */,
@@ -310,12 +314,14 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
-		3C2BE6FE2A0BD46A00DF01CD /* Domain */ = {
+		3CBBAA9A2A0D06E300266246 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				17CBF57129C5C02F00680D96 /* Entities */,
+				17CBF57129C5C02F00680D96 /* Models */,
+				3CBBAA9B2A0D0BB700266246 /* BaseNetworkManager.swift */,
+				3CBBAA9D2A0D163400266246 /* ShowsAPIManager.swift */,
 			);
-			path = Domain;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		4055A032FE27B022A80EF820 /* Frameworks */ = {
@@ -580,6 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17F8D74D29C740DB0063B9F9 /* ListOfShowsViewController+UI.swift in Sources */,
+				3CBBAA9E2A0D163400266246 /* ShowsAPIManager.swift in Sources */,
 				17CBF57329C5C04900680D96 /* ServiceShow.swift in Sources */,
 				17F8D75329C754360063B9F9 /* ShowTableViewCell+UI.swift in Sources */,
 				17CBF57F29C5C63C00680D96 /* Image.swift in Sources */,
@@ -593,6 +600,7 @@
 				17CBF57029C5BCBD00680D96 /* NetworkManager.swift in Sources */,
 				17CBF57729C5C4E600680D96 /* Rating.swift in Sources */,
 				17F8D74529C737D50063B9F9 /* RealmShow.swift in Sources */,
+				3CBBAA9C2A0D0BB700266246 /* BaseNetworkManager.swift in Sources */,
 				17CBF57929C5C54100680D96 /* Network.swift in Sources */,
 				17F8D74329C71A4A0063B9F9 /* Utilities.swift in Sources */,
 				17F8D73E29C7128E0063B9F9 /* DVDCountry.swift in Sources */,
@@ -778,7 +786,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7X48R5E6LJ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "/Users/nikolas/Desktop/Programming/Personal Projects/Movies/Movies/Resources/Info.plist";
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -807,7 +815,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7X48R5E6LJ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "/Users/nikolas/Desktop/Programming/Personal Projects/Movies/Movies/Resources/Info.plist";
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
