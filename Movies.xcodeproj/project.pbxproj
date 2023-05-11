@@ -240,7 +240,7 @@
 		17F1981C29C4AE6900F15D72 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				3C2BE6FE2A0BD46A00DF01CD /* Application */,
+				3C2BE6FE2A0BD46A00DF01CD /* Domain */,
 				17F8D74629C73F1F0063B9F9 /* Extensions */,
 				1757848529C5594E0098F3F8 /* Managers */,
 				1757848229C54C3B0098F3F8 /* ViewControllers */,
@@ -310,12 +310,12 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
-		3C2BE6FE2A0BD46A00DF01CD /* Application */ = {
+		3C2BE6FE2A0BD46A00DF01CD /* Domain */ = {
 			isa = PBXGroup;
 			children = (
 				17CBF57129C5C02F00680D96 /* Entities */,
 			);
-			path = Application;
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		4055A032FE27B022A80EF820 /* Frameworks */ = {
