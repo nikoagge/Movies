@@ -196,7 +196,7 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		17CBF57129C5C02F00680D96 /* Models */ = {
+		17CBF57129C5C02F00680D96 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				17CBF57229C5C04900680D96 /* ServiceShow.swift */,
@@ -212,7 +212,7 @@
 				17F8D73D29C7128E0063B9F9 /* DVDCountry.swift */,
 				17F8D74429C737D50063B9F9 /* RealmShow.swift */,
 			);
-			path = Models;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		17F1981129C4AE6900F15D72 = {
@@ -243,7 +243,6 @@
 				3C2BE6FE2A0BD46A00DF01CD /* Application */,
 				17F8D74629C73F1F0063B9F9 /* Extensions */,
 				1757848529C5594E0098F3F8 /* Managers */,
-				17CBF57129C5C02F00680D96 /* Models */,
 				1757848229C54C3B0098F3F8 /* ViewControllers */,
 				17F8D74E29C7427E0063B9F9 /* Views */,
 				1757848029C54BF30098F3F8 /* Resources */,
@@ -314,6 +313,7 @@
 		3C2BE6FE2A0BD46A00DF01CD /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				17CBF57129C5C02F00680D96 /* Entities */,
 			);
 			path = Application;
 			sourceTree = "<group>";
