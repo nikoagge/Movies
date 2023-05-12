@@ -11,12 +11,15 @@ final class ShowDetailViewController: UIViewController {
     let showImageImageView = UIImageView.newAutoLayout()
     let showDescriptionLabel = UILabel.newAutoLayout()
     
-    let show: ServiceShow?
+    let serviceShow: ServiceShow?
+    let realmShow: RealmShow?
     
     init(
-        show: ServiceShow?
+        serviceShow: ServiceShow?,
+        realmShow: RealmShow?
     ) {
-        self.show = show
+        self.serviceShow = serviceShow
+        self.realmShow = realmShow
         
         super.init(nibName: nil, bundle: nil)
     }

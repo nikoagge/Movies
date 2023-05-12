@@ -15,7 +15,8 @@ extension ShowDetailViewController {
     }
     
     private func setupShowImageImageView() {
-        ImageLoader.shared.fetchImage(urlString: show?.image?.medium) { [weak self] result in
+        let urlString = serviceShow == nil ? realmShow?.imageMedium : serviceShow?.image?.medium
+        ImageLoader.shared.fetchImage(urlString: urlString) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let data):
@@ -38,7 +39,11 @@ extension ShowDetailViewController {
     }
     
     private func setupShowDescription() {
-        showDescriptionLabel.text = "Name of the show is \(show?.name ?? "no name show"), its language is \(show?.language ?? "no language value"), its type is \(show?.type ?? "no show type exists") and finally its rating is \(String(describing: show?.rating?.average))."
+        if let serviceShow = serviceShow {
+            showDescriptionLabel.text = "Name of the show is \(serviceShow.name ?? "no name show"), its language is \(serviceShow.language ?? "no language value"), its type is \(serviceShow.type ?? "no show type exists") and finally its rating is \(String(describing: serviceShow.rating?.average))."
+        } else if let realmShow = realmShow {
+            showDescriptionLabel.text = "Name of the show is \(realmShow.name), its language is \(realmShow.language), its type is \(realmShow.type) and finally its rating is \(String(describing: realmShow.rating))."
+        }
         showDescriptionLabel.numberOfLines = 0
         showDescriptionLabel.font = UIFont.systemFont(ofSize: 20)
         showDescriptionLabel.lineBreakMode = .byWordWrapping

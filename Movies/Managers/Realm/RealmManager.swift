@@ -11,10 +11,14 @@ import RealmSwift
 protocol RealmManagerType {
     func addRealmShow(_ serviceShow: ServiceShow)
     func loadRealmShows()
+    func replace(shows: [ServiceShow])
+    func anotherFetchShows(onCompletion: @escaping (([RealmShow]?) -> Void))
     func printPath()
 }
 
 final class RealmManager: RealmManagerType {
+    static let shared = RealmManager()
+    
     var realm: Realm?
     
     init() {
@@ -43,5 +47,23 @@ final class RealmManager: RealmManagerType {
     
     func loadRealmShows() {
         listOfRealmShows = realm?.objects(RealmShow.self)
+    }
+    
+    func fetchShows() -> [RealmShow] {
+        guard let realm = realm else { return [] }
+        return Array(realm.objects(RealmShow.self))
+    }
+    
+    func anotherFetchShows(onCompletion: @escaping (([RealmShow]?) -> Void)) {
+        guard let realm = realm else {
+            onCompletion(nil)
+            
+            return
+        }
+        
+        onCompletion(Array(realm.objects(RealmShow.self)))
+    }
+    
+    func replace(shows: [ServiceShow]) {
     }
 }

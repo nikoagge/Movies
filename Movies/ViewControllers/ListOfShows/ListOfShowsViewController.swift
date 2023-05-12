@@ -24,7 +24,7 @@ final class ListOfShowsViewController:
     }
     
     private func loadData() {
-        listOfShowsViewModel.showsLoaded = { [weak self] (_, success) in
+        listOfShowsViewModel.showsLoaded = { [weak self] (success) in
             guard let self = self else { return }
             if success {
                 self.listOfShowsTableView.reloadData()
@@ -74,14 +74,9 @@ extension ListOfShowsViewController: UITableViewDataSource, UITableViewDelegate 
             return UITableViewCell()
         }
         
-        showTableViewCell.configure(serviceShow: listOfShowsViewModel.fetchShow(for: indexPath.row), realmShow: nil)
-
-        
-//        if listOfRealmShows == nil {
-//            showTableViewCell.configure(serviceShow: listOfServiceShows[indexPath.row], realmShow: nil)
-//        } else {
-//            showTableViewCell.configure(serviceShow: nil, realmShow: listOfRealmShows[indexPath.row])
-//        }
+        listOfShowsViewModel.fetchShow(for: indexPath.row) { (serviceShow, realmShow) in
+            showTableViewCell.configure(serviceShow: serviceShow, realmShow: realmShow)
+        }
         
         return showTableViewCell
     }
@@ -91,13 +86,14 @@ extension ListOfShowsViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigate(
-            .init(
+        listOfShowsViewModel.fetchShow(for: indexPath.row) { [weak self] (serviceShow, realmShow) in
+            guard let self = self else { return }
+            navigate(.init(
                 pageType: .showDetailViewController(
-                    show: listOfShowsViewModel.fetchShow(for: indexPath.row)
-                ),
-                navigationStyle: .push(animated: true)
-            )
-        )
+                    serviceShow: serviceShow,
+                    realmShow: realmShow
+                ), navigationStyle: .push(animated: true)
+            ))
+        }
     }
 }

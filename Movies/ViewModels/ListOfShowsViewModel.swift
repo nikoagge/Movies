@@ -8,11 +8,25 @@
 import Foundation
 
 final class ListOfShowsViewModel {
-    var showsLoaded: (([ServiceShow]?, Bool) -> Void)?
+    var showsLoaded: ((Bool) -> Void)?
     var listOfShows: [ServiceShow]?
+    var listOfRealmShows: [RealmShow]?
     
     init() {
-        fetchShows()
+        RealmManager.shared.anotherFetchShows { [weak self] realmShows in
+            guard let self = self, let realmShows = realmShows else {
+                // TODO: Fix optional chaining there
+                self?.fetchShows()
+                
+                return
+            }
+            if realmShows.count > 0 {
+                self.listOfRealmShows = realmShows
+                handleShowsLoaded(success: true)
+            } else {
+                self.fetchShows()
+            }
+        }
     }
     
     func fetchShows() {
@@ -21,24 +35,37 @@ final class ListOfShowsViewModel {
             switch result {
             case .success(let success):
                 self.listOfShows = success
-                self.handleResponse(response: success, success: true)
+                success.forEach { serviceShow in
+                    RealmManager.shared.addRealmShow(serviceShow)
+                }
+                handleShowsLoaded(success: true)
             case .failure(_):
-                self.handleResponse(response: nil, success: false)
+                handleShowsLoaded(success: false)
             }
         }
     }
     
     func numberOfRows() -> Int {
-        return listOfShows?.count ?? 0
+        if let listOfRealmShows = listOfRealmShows {
+            return listOfRealmShows.count
+        } else if let listOfShows = listOfShows {
+            return listOfShows.count
+        } else {
+            return 0
+        }
     }
     
-    func fetchShow(for index: Int) -> ServiceShow? {
-        return listOfShows?[index]
+    func fetchShow(for index: Int, onCompletion: @escaping ((ServiceShow?, RealmShow?) -> Void)) {
+        if let listOfRealmShows = listOfRealmShows, listOfRealmShows.count > 0 {
+            onCompletion(nil, listOfRealmShows[index])
+        } else {
+            onCompletion(listOfShows?[index], nil)
+        }
     }
-        
-    private func handleResponse(response: [ServiceShow]?, success: Bool) {
+    
+    private func handleShowsLoaded(success: Bool) {
         if let showsLoaded = self.showsLoaded {
-            showsLoaded(response, success)
+            showsLoaded(success)
         }
     }
 }

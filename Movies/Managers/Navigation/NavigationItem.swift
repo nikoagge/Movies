@@ -11,7 +11,7 @@ struct NavigationItem {
     enum PageType {
         case viewControllers(viewControllers: [UIViewController])
         case viewController(viewController: UIViewController)
-        case showDetailViewController(show: ServiceShow?)
+        case showDetailViewController(serviceShow: ServiceShow?, realmShow: RealmShow?)
     }
     
     enum NavigationStyle {
