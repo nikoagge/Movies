@@ -12,4 +12,7 @@ enum HTTPError: Error {
     case noDataError
     case requestError
     case parsingFailureError
+    case noStatusCodeError
+    case jsonResponseError
+    case noSuccessfulStatusCode
 }

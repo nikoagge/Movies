@@ -11,14 +11,14 @@ final class ListOfShowsViewModel {
     var showsLoaded: (([ServiceShow]?, Bool) -> Void)?
     var shows: [ServiceShow]?
     
-    func fetchShows() {
-        ShowsAPIManager.shared.fetchShows { [weak self] serviceShows in
-            self?.shows = serviceShows
-            self?.handleResponse(response: serviceShows, success: true)
-        } onFailure: { [weak self] _ in
-            self?.handleResponse(response: nil, success: false)
-        }
-    }
+//    func fetchShows() {
+//        ShowsAPIManager.shared.fetchShows { [weak self] serviceShows in
+//            self?.shows = serviceShows
+//            self?.handleResponse(response: serviceShows, success: true)
+//        } onFailure: { [weak self] _ in
+//            self?.handleResponse(response: nil, success: false)
+//        }
+//    }
     
     func numberOfRows() -> Int {
         return self.shows?.count ?? 0

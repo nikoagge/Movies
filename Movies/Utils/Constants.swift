@@ -8,5 +8,5 @@
 import Foundation
 
 final class Constants {
-    static let SHOWS_URL = "https://api.tvmaze.com"
+    static let baseURL = "https://api.tvmaze.com"
 }
