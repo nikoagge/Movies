@@ -20,8 +20,8 @@ extension NavigableViewController {
         switch navigationItem.pageType {
         case .viewControllers(let viewControllers): controllersToInitialNavigation = viewControllers
         case .viewController(let viewController): controllerToNavigate = viewController
-        case .showDetailViewController(let showImageURLString, let showName, let showLanguage, let showType, let showRating):
-            controllerToNavigate = ShowDetailViewController(showImageURLString: showImageURLString, showName: showName, showLanguage: showLanguage, showType: showType, showRating: showRating)
+        case .showDetailViewController(let show):
+            controllerToNavigate = ShowDetailViewController(show: show)
         }
         
         if let controllerToNavigate = controllerToNavigate {

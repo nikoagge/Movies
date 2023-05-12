@@ -15,17 +15,16 @@ extension ShowDetailViewController {
     }
     
     private func setupShowImageImageView() {
-        ImageLoader.shared.fetchImage(urlString: showImageURLString) { [weak self] result in
+        ImageLoader.shared.fetchImage(urlString: show?.image?.medium) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
                     let image = UIImage(data: data)
-                    self?.showImageImageView.image = image
+                    self.showImageImageView.image = image
                 }
                 
-            case .failure(let error):
-                debugPrint(String(describing: error))
-                
+            case .failure(_):                
                 break
             }
         }
@@ -39,7 +38,7 @@ extension ShowDetailViewController {
     }
     
     private func setupShowDescription() {
-        showDescriptionLabel.text = "Name of the show is \(showName ?? "no name show"), its language is \(showLanguage ?? "no language value"), its type is \(showType ?? "no show type exists") and finally its rating is \(showRating ?? "0")."
+        showDescriptionLabel.text = "Name of the show is \(show?.name ?? "no name show"), its language is \(show?.language ?? "no language value"), its type is \(show?.type ?? "no show type exists") and finally its rating is \(String(describing: show?.rating?.average))."
         showDescriptionLabel.numberOfLines = 0
         showDescriptionLabel.font = UIFont.systemFont(ofSize: 20)
         showDescriptionLabel.lineBreakMode = .byWordWrapping

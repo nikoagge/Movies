@@ -11,24 +11,12 @@ final class ShowDetailViewController: UIViewController {
     let showImageImageView = UIImageView.newAutoLayout()
     let showDescriptionLabel = UILabel.newAutoLayout()
     
-    var showImageURLString: String?
-    var showName: String?
-    var showLanguage: String?
-    var showType: String?
-    var showRating: String?
+    let show: ServiceShow?
     
     init(
-        showImageURLString: String?,
-        showName: String?,
-        showLanguage: String?,
-        showType: String?,
-        showRating: String?
+        show: ServiceShow?
     ) {
-        self.showImageURLString = showImageURLString
-        self.showName = showName
-        self.showLanguage = showLanguage
-        self.showType = showType
-        self.showRating = showRating
+        self.show = show
         
         super.init(nibName: nil, bundle: nil)
     }

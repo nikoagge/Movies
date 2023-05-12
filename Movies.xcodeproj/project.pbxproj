@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1757848729C5598D0098F3F8 /* MoviesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1757848629C5598D0098F3F8 /* MoviesAPI.swift */; };
 		1775F8CF29C769DB0023094E /* ShowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775F8CE29C769DB0023094E /* ShowDetailViewController.swift */; };
 		1775F8D129C76EAE0023094E /* ShowDetailViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775F8D029C76EAE0023094E /* ShowDetailViewController+UI.swift */; };
 		1775F8D529C773260023094E /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775F8D429C773260023094E /* NavigationItem.swift */; };
 		1775F8D729C773870023094E /* NavigableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775F8D629C773870023094E /* NavigableViewController.swift */; };
-		17CBF57029C5BCBD00680D96 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBF56F29C5BCBD00680D96 /* NetworkManager.swift */; };
 		17CBF57329C5C04900680D96 /* ServiceShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBF57229C5C04900680D96 /* ServiceShow.swift */; };
 		17CBF57529C5C49900680D96 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBF57429C5C49900680D96 /* Schedule.swift */; };
 		17CBF57729C5C4E600680D96 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBF57629C5C4E600680D96 /* Rating.swift */; };
@@ -69,12 +67,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1757848629C5598D0098F3F8 /* MoviesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAPI.swift; sourceTree = "<group>"; };
 		1775F8CE29C769DB0023094E /* ShowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewController.swift; sourceTree = "<group>"; };
 		1775F8D029C76EAE0023094E /* ShowDetailViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShowDetailViewController+UI.swift"; sourceTree = "<group>"; };
 		1775F8D429C773260023094E /* NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItem.swift; sourceTree = "<group>"; };
 		1775F8D629C773870023094E /* NavigableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigableViewController.swift; sourceTree = "<group>"; };
-		17CBF56F29C5BCBD00680D96 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		17CBF57229C5C04900680D96 /* ServiceShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceShow.swift; sourceTree = "<group>"; };
 		17CBF57429C5C49900680D96 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		17CBF57629C5C4E600680D96 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
@@ -175,7 +171,6 @@
 			children = (
 				1775F8D329C773030023094E /* Navigation */,
 				17F8D75629C757C80063B9F9 /* Image */,
-				17CBF56E29C5BCA300680D96 /* Networking */,
 				17F8D73F29C7154B0063B9F9 /* Realm */,
 			);
 			path = Managers;
@@ -197,15 +192,6 @@
 				1775F8D629C773870023094E /* NavigableViewController.swift */,
 			);
 			path = Navigation;
-			sourceTree = "<group>";
-		};
-		17CBF56E29C5BCA300680D96 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				1757848629C5598D0098F3F8 /* MoviesAPI.swift */,
-				17CBF56F29C5BCBD00680D96 /* NetworkManager.swift */,
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		17CBF57129C5C02F00680D96 /* Models */ = {
@@ -634,7 +620,6 @@
 				3C217FD62A0E2B9A008C34E8 /* ShowsAPI.swift in Sources */,
 				1775F8D129C76EAE0023094E /* ShowDetailViewController+UI.swift in Sources */,
 				1775F8D729C773870023094E /* NavigableViewController.swift in Sources */,
-				17CBF57029C5BCBD00680D96 /* NetworkManager.swift in Sources */,
 				17CBF57729C5C4E600680D96 /* Rating.swift in Sources */,
 				17F8D74529C737D50063B9F9 /* RealmShow.swift in Sources */,
 				17CBF57929C5C54100680D96 /* Network.swift in Sources */,
@@ -654,7 +639,6 @@
 				17F8D74829C73F3B0063B9F9 /* UIView+Extension.swift in Sources */,
 				3CBBAAAE2A0D33ED00266246 /* LoaderView.swift in Sources */,
 				1775F8D529C773260023094E /* NavigationItem.swift in Sources */,
-				1757848729C5598D0098F3F8 /* MoviesAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

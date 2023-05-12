@@ -35,7 +35,7 @@ final class ListOfShowsViewModel {
     func fetchShow(for index: Int) -> ServiceShow? {
         return listOfShows?[index]
     }
-    
+        
     private func handleResponse(response: [ServiceShow]?, success: Bool) {
         if let showsLoaded = self.showsLoaded {
             showsLoaded(response, success)
