@@ -11,7 +11,7 @@ protocol ShowsPresenterDelegate {
     func presentShows(serviceShows: [ServiceShow])
 }
 
-typealias PresenterDelegate = ShowsPresenterDelegate & UIViewController
+typealias PresenterDelegate = ShowsPresenterDelegate & NavigableViewController & UIViewController
 
 final class ShowsPresenter {
     weak var delegate: PresenterDelegate?
@@ -31,5 +31,9 @@ final class ShowsPresenter {
     
     func setViewDelegate(delegate: PresenterDelegate) {
         self.delegate = delegate
+    }
+    
+    func didSelectShow(_ show: ServiceShow) {
+        delegate?.navigate(.init(pageType: .showDetailViewController(showImageURLString: show.image?.medium, showName: show.name, showLanguage: show.language, showType: show.type, showRating: "\(String(describing: show.rating?.average))"), navigationStyle: .push(animated: true)))
     }
 }

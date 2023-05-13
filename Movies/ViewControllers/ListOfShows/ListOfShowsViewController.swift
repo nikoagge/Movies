@@ -31,8 +31,12 @@ final class ListOfShowsViewController:
     }
     
     @objc func refreshDataFromService() {
-//        listOfShowsViewModel.shows?.removeAll()
-//        loadData()
+        listOfShows.removeAll()
+        listOfShowsTableView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: { [weak self] in
+            guard let self = self else { return }
+            self.showsPresenter.fetchShows()
+        })
     }
 }
 
@@ -73,12 +77,6 @@ extension ListOfShowsViewController: UITableViewDataSource, UITableViewDelegate 
         }
         
         showTableViewCell.configure(serviceShow: listOfShows[indexPath.row], realmShow: nil)
-
-//        if listOfRealmShows == nil {
-//            showTableViewCell.configure(serviceShow: listOfServiceShows[indexPath.row], realmShow: nil)
-//        } else {
-//            showTableViewCell.configure(serviceShow: nil, realmShow: listOfRealmShows[indexPath.row])
-//        }
         
         return showTableViewCell
     }
@@ -87,24 +85,7 @@ extension ListOfShowsViewController: UITableViewDataSource, UITableViewDelegate 
         return 130
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let showImageURLString = listOfRealmShows == nil ? listOfServiceShows[indexPath.row].image?.medium : listOfRealmShows[indexPath.row].imageMedium
-//        let showName = listOfRealmShows == nil ? listOfServiceShows[indexPath.row].name : listOfRealmShows[indexPath.row].name
-//        let showLanguage = listOfRealmShows == nil ? listOfServiceShows[indexPath.row].language : listOfRealmShows[indexPath.row].language
-//        let showType = listOfRealmShows == nil ? listOfServiceShows[indexPath.row].type : listOfRealmShows[indexPath.row].type
-//        let showRating = listOfRealmShows == nil ? "\(listOfServiceShows[indexPath.row].rating?.average ?? 0)" : "\(listOfRealmShows[indexPath.row].rating)"
-//
-//        navigate(
-//            .init(
-//                pageType: .showDetailViewController(
-//                    showImageURLString: showImageURLString,
-//                    showName: showName,
-//                    showLanguage: showLanguage,
-//                    showType: showType,
-//                    showRating: showRating
-//                ),
-//                navigationStyle: .push(animated: true)
-//            )
-//        )
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showsPresenter.didSelectShow(listOfShows[indexPath.row])
+    }
 }
