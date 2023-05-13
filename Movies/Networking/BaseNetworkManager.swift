@@ -31,7 +31,7 @@ class BaseNetworkManager<T: TargetType> {
             }
             
             if statusCode == 200 {
-                guard let jsonResponse = try? response.result.get() else {
+                guard (try? response.result.get()) != nil else {
                     completionHandler(.failure(.jsonResponseError))
                     
                     return
