@@ -11,6 +11,7 @@ final class ListOfShowsViewController:
     UIViewController,
     NavigableViewController, ShowsPresenterDelegate {
     private var listOfShows = [ServiceShow]()
+    private var showsFromDatabase = [RealmShow]()
     private let showsPresenter = ShowsPresenter()
     private let listOfShowsTableView = UITableView.newAutoLayout()
         
@@ -25,6 +26,13 @@ final class ListOfShowsViewController:
     
     func presentShows(serviceShows: [ServiceShow]) {
         listOfShows = serviceShows
+        DispatchQueue.main.async {
+            self.listOfShowsTableView.reloadData()
+        }
+    }
+    
+    func presentShowsFromDatabase(realmShows: [RealmShow]) {
+        showsFromDatabase = realmShows
         DispatchQueue.main.async {
             self.listOfShowsTableView.reloadData()
         }
@@ -65,7 +73,7 @@ extension ListOfShowsViewController {
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension ListOfShowsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listOfShows.count
+        return showsFromDatabase.count > 0 ? showsFromDatabase.count : listOfShows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,7 +84,11 @@ extension ListOfShowsViewController: UITableViewDataSource, UITableViewDelegate 
             return UITableViewCell()
         }
         
-        showTableViewCell.configure(serviceShow: listOfShows[indexPath.row], realmShow: nil)
+        if showsFromDatabase.count > 0 {
+            showTableViewCell.configure(serviceShow: nil, realmShow: showsFromDatabase[indexPath.row])
+        } else {
+            showTableViewCell.configure(serviceShow: listOfShows[indexPath.row], realmShow: nil)
+        }
         
         return showTableViewCell
     }
@@ -86,6 +98,16 @@ extension ListOfShowsViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showsPresenter.didSelectShow(listOfShows[indexPath.row])
+        if showsFromDatabase.count > 0 {
+            showsPresenter.didSelectShow(
+                show: nil,
+                showFromDatabase: showsFromDatabase[indexPath.row]
+            )
+        } else {
+            showsPresenter.didSelectShow(
+                show: listOfShows[indexPath.row],
+                showFromDatabase: nil
+            )
+        }
     }
 }
